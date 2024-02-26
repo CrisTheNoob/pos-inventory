@@ -1,0 +1,15 @@
+:root {
+    --offcanvas-width: 270px;
+}
+.sidebar-nav {
+    width: var(--offcanvas-width);
+}
+.navbar-bg-dark {
+    background: rgba(33, 37, 41, 1);
+}
+@media (min-width: 992px) {
+    .sidebar-nav {
+        transform: none;
+        visibility: visible !important;
+    }
+}
