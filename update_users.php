@@ -1,16 +1,24 @@
 <?php
 include 'connec.php';
+$id=$_GET['updateid'];
+$sql="Select * from `new_users` where id=$id";
+$result=mysqli_query($con,$sql);
+$row=mysqli_fetch_assoc($result);
+$firstName=$row['firstName'];
+$lastName=$row['lastName'];
+$mobile=$row['mobile'];
+$emailAddress=$row['emailAddress'];
+
 if(isset($_POST['submit'])){
     $firstName=$_POST['firstName'];
     $lastName=$_POST['lastName'];
     $mobile=$_POST['mobile'];
     $emailAddress=$_POST['emailAddress'];
 
-    $sql="insert into `new_users` (firstName,lastName,mobile,emailAddress)
-    value('$firstName','$lastName','$email','$emailAddress')";
+    $sql="update `new_users` set id=$id,firstName='$firstName',lastName='$lastName',mobile='$mobile',emailAddress='$emailAddress'";
     $result=mysqli_query($con,$sql);
     if($result){
-        header('location:customer_page.php');
+        echo "Updated Successfully";
     }else{
         die(mysqli_error($con));
     }
@@ -228,11 +236,10 @@ if(isset($_POST['submit'])){
                         <input type="text" class="form-control" id="inputPassword">
                         </div>
                     </div> 
-                    <button type="submit" name="submit" class="btn btn-success" id="liveAlertBtn"><i class="bi bi-plus-square"></i> Add</button>
-
+                    <button type="submit" name="submit" class="btn btn-success" id="liveAlertBtn"><i class="bi bi-plus-square"></i> Update</button>
                 </form>
                 <br>
-                <button type="button" class="btn btn-danger"><a href="customer_page.php">Close</a></button>
+                
             </div>
         </div>
     </div>

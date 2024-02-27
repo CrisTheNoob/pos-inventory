@@ -1,3 +1,8 @@
+<?php
+include 'connec.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,12 +71,6 @@
                                 <button type="button" class="btn btn-success"><a href="add_new_customer.php" class="nav-link text-dark"><i class="bi bi-plus-square"></i>New</a></button> 
                             </li>
                             <li class="m-1">
-                                <button type="button" class="btn btn-warning"><a href="#" class="nav-link text-dark"><i class="bi bi-pencil-square"></i>Edit</a></button> 
-                            </li>
-                            <li class="m-1">
-                                <button type="button" class="btn btn-warning"><a href="#" class="nav-link text-dark"><i class="bi bi-trash3"></i>Delete</a></button> 
-                            </li>
-                            <li class="m-1">
                                 <button type="button" class="btn btn-danger"><a href="index.php" class="nav-link text-dark"><i class="bi bi-x-lg"></i>Close</a></button> 
                             </li>
                         </ul>
@@ -82,18 +81,42 @@
             <table class="table">
             <thead>
                 <tr>
-                <th scope="col">ID</th>
+                <th scope="col">Id</th>
                 <th scope="col">First Name</th>
                 <th scope="col">Last Name</th>
+                <th scope="col">Mobile</th>
+                <th scope="col">Email Address</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row"></th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+
+            <?php
+
+            $sql="Select * from `new_users`";
+            $result=mysqli_query($con,$sql);
+            if($result){
+                while($row=mysqli_fetch_assoc($result)){
+                    $id=$row['id'];
+                    $firstName=$row['firstName'];
+                    $lastName=$row['lastName'];
+                    $mobile=$row['mobile'];
+                    $emailAddress=$row['emailAddress'];
+                    echo '<tr>
+                    <th scope="row">'.$id.'</th>
+                    <td>'.$firstName.'</td>
+                    <td>'.$lastName.'</td>
+                    <td>'.$mobile.'</td>
+                    <td>'.$emailAddress.'</td>
+                    <td>
+                    <button class="btn btn-primary"><a href="update_users.php?updateid='.$id.'" class="text-light"><i class="bi bi-pencil-square"></i>Update</a></button>
+                    <button class="btn btn-danger"><a href="delete.php?deleteid='.$id.'" class="text-light"><i class="bi bi-trash3"></i>Delete</a></button>
+                    </td>
+                </tr>';
+                }
+            }
+
+            ?>
+                
             </tbody>
             </table>
             </div>

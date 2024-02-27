@@ -1,5 +1,18 @@
 <?php
     include 'connec.php';
+    $id=$_GET['updateid'];
+    $sql="Select * from `new_product_items` where id=$id";
+    $result=mysqli_query($con,$sql);
+    $row=mysqli_fetch_assoc($result);
+    $itemCode=$row['itemCode'];
+    $description=$row['description'];
+    $unitCost=$row['unitCost'];
+    $unit=$row['unit'];
+
+
+
+
+
     if(isset($_POST['submit'])){
         // $id=$_POST['id'];
         $type=$_POST['type'];
@@ -8,12 +21,11 @@
         $unitCost=$_POST['unitCost'];
         $unit=$_POST['unit'];
 
-        $sql="insert into `new_product_items` (type,itemCode,description,unitCost,unit)
-        value('$type','$itemCode','$description','$unitCost','$unit')";
+        $sql="update `new_product_items` set id=$id,type='$type',itemCode='$itemCode',description='$description',unitCost='$unitCost',unit='$unit'";
         $result=mysqli_query($con,$sql);
         if($result){
-            // echo "Data inserted successfully";
-            header('location:product_page.php');
+            echo "Dpdated successfully";
+            // header('location:product_page.php');
         }else{
             die(mysqli_error($con));
         }
@@ -122,8 +134,8 @@
                         <input type="number" class="form-control" id="inputUnit" name="unit" autocomplete="off">
                         </div>
                     </div>
-                    <button type="submit" name="submit" class="btn btn-success" id="liveAlertBtn"><i class="bi bi-plus-square"></i> Add</button>
-                    <!-- <button type="button" name="submit" class="btn btn-danger"><a href="product_page.php">Close</a></button>   -->
+                    <button type="submit" name="submit" class="btn btn-success" id="liveAlertBtn"><i class="bi bi-plus-square"></i> Update</button>
+                   
                 </form>
                 
             </div>

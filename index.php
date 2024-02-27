@@ -1,6 +1,6 @@
-<?php
+<!-- <?php
     include("./database/datebase.php");
-?>
+?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,13 +54,13 @@
                     <hr>
                 <ul class="nav nav-pills flex-column mb-auto">
                     <li class="nav-item">
-                        <a href="product.php" class="nav-link link-body-emphasis text-light">
+                        <a href="product_page.php" class="nav-link link-body-emphasis text-light">
                         <i class="bi bi-cart3"></i>
                         Product
                         </a>
                     </li>
                     <li>
-                        <a href="customer.php" class="nav-link link-body-emphasis text-light">
+                        <a href="customer_page.php" class="nav-link link-body-emphasis text-light">
                         <i class="bi bi-person"></i>
                         Costumer
                         </a>

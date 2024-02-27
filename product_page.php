@@ -1,3 +1,7 @@
+<?php
+include 'connec.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +25,9 @@
         }
         .items {
             margin-left: 60px;
+        }
+        a {
+            text-decoration: none;
         }
     </style>
 </head>
@@ -70,13 +77,7 @@
                                 <button type="button" class="btn btn-success"><a href="add_new.php" class="nav-link text-dark"><i class="bi bi-plus-square"></i>New</a></button> 
                             </li>
                             <li class="m-1">
-                                <button type="button" class="btn btn-warning"><a href="#" class="nav-link text-dark"><i class="bi bi-pencil-square"></i>Edit</a></button> 
-                            </li>
-                            <li class="m-1">
-                                <button type="button" class="btn btn-warning"><a href="#" class="nav-link text-dark"><i class="bi bi-trash3"></i>Delete</a></button> 
-                            </li>
-                            <li class="m-1">
-                                <button type="button" class="btn btn-danger"><a href="product.php" class="nav-link text-dark"><i class="bi bi-x-lg"></i>Close</a></button> 
+                                <button type="button" class="btn btn-danger"><a href="index.php" class="nav-link text-dark"><i class="bi bi-x-lg"></i>Close</a></button> 
                             </li>
                         </ul>
                     </div>
@@ -86,21 +87,45 @@
             <table class="table">
             <thead>
                 <tr>
+                <th scope="col">Id</th>
                 <th scope="col">Item Code</th>
-                <th scope="col">Class</th>
-                <th scope="col">Types</th>
                 <th scope="col">Description</th>
-                <th scope="col">Price</th>
-                <th scope="col">Total Qty</th>
+                <th scope="col">Unit Cost</th>
+                <th scope="col">Unit</th>
+                <!-- <th scope="col">Price</th> -->
+                <!-- <th scope="col">Total Qty</th> -->
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row"></th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+
+            <?php
+
+            $sql="Select * from `new_product_items`";
+            $result=mysqli_query($con,$sql);
+            if($result){
+                while($row=mysqli_fetch_assoc($result)){
+                    $id=$row['id'];
+                    // $type=$row['type'];
+                    $itemCode=$row['itemCode'];
+                    $description=$row['description'];
+                    $unitCost=$row['unitCost'];
+                    $unit=$row['unit'];
+                    echo '<tr>
+                    <th>'.$id.'</th>
+                    <td>'.$itemCode.'</td>
+                    <td>'.$description.'</td>
+                    <td>'.$unitCost.'</td>
+                    <td>'.$unit.'</td>
+                    <td>
+                    <button class="btn btn-primary"><a href="update.php?updateid='.$id.'" class="text-light"><i class="bi bi-pencil-square"></i>Update</a></button>
+                    <button class="btn btn-danger"><a href="delete.php?deleteid='.$id.'" class="text-light"><i class="bi bi-trash3"></i>Delete</a></button>
+                    </td>
+                </tr> ';
+                }
+            }
+
+
+            ?>
             </tbody>
             </table>
             </div>
@@ -111,6 +136,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script>
+        
+    </script>
     
 </body>
 </html>
