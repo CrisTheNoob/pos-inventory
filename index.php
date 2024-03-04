@@ -150,41 +150,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card m-3">
-                                <div class="card-header">
-                                    <h1>Customer Tables</h1>
-                                </div>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table id="example" class="table table-striped data-table" style="width: 100%">
-                                            <thead>
-                                                <tr>
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Age</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
         </div>
     </div>
 

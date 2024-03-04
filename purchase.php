@@ -7,7 +7,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Dashboard</title>
+        <title>Purchase</title>
         <link rel="icon" href="./img/POS.png" type="image/x-icon">
         <link rel="stylesheet" href="./assets/css/style.css">
     
@@ -46,7 +46,7 @@
     
         <div class="row">
             <div class="flex-shrink-0 p-3 bg-dark" style="width: 290px; height: 92vh">
-                <a href="/" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
+                <a href="index.php" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
                 <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
                 <span class="fs-5 fw-semibold text-light">Dashboard</span>
                 </a>
