@@ -39,34 +39,40 @@ include 'connec.php';
     </nav>
 
     <div class="row">
-        <div class="col col-lg-2">
-            <div class="d-flex flex-column flex-shrink-0 p-3 bg-dark" style="width: 280px; height: 94vh;">
-                <a href="index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none text-light">
-                <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-                <span class="fs-4">Dashboard</span>
-                </a>
-                    <hr>
-                <ul class="nav nav-pills flex-column mb-auto">
-                    <li class="nav-item">
-                        <a href="product_page.php" class="nav-link link-body-emphasis text-light">
-                        <i class="bi bi-cart3"></i>
-                        Product
-                        </a>
-                    </li>
-                    <li>
-                        <a href="customer.php" class="nav-link link-body-emphasis text-light">
-                        <i class="bi bi-person"></i>
-                        Costumer
-                        </a>
-                    </li>
-                    <li>
-                        <a href="transaction_page.php" class="nav-link link-body-emphasis text-light">
-                        <i class="bi bi-clipboard-data"></i>
-                            Transaction
-                        </a>
-                    </li>
+    <div class="flex-shrink-0 p-3 bg-dark" style="width: 280px; height: 92vh">
+            <a href="/" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
+            <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+            <span class="fs-5 fw-semibold text-light">Dashboard</span>
+            </a>
+            <ul class="list-unstyled ps-0">
+            <li class="mb-1">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 text-light" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                Product
+                </button>
+                <div class="collapse show" id="home-collapse" style="">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ps-3">
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">List of Product</a></li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">Type of Product</a></li>
                 </ul>
-            </div>
+                </div>
+            </li>
+            <li class="mb-1">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed text-light" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+                Customer
+                </button>
+                <div class="collapse" id="dashboard-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ps-3">
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">List of Customers</a></li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">Location of Customers</a></li>
+                </ul>
+                </div>
+            </li>
+            <li class="mb-1">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed text-light" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+                Transaction
+                </button>
+            </li>
+            </ul>
         </div>
         <div class="col items">
             <div class="px-3 py-2 border-bottom">
@@ -92,8 +98,6 @@ include 'connec.php';
                 <th scope="col">Description</th>
                 <th scope="col">Unit Cost</th>
                 <th scope="col">Unit</th>
-                <!-- <th scope="col">Price</th> -->
-                <!-- <th scope="col">Total Qty</th> -->
                 </tr>
             </thead>
             <tbody>

@@ -1,21 +1,19 @@
 <?php
 include 'connec.php';
 $id=$_GET['updateid'];
-$sql="Select * from `new_users` where id=$id";
+$sql="Select * from `customers_db` where id=$id";
 $result=mysqli_query($con,$sql);
 $row=mysqli_fetch_assoc($result);
 $firstName=$row['firstName'];
 $lastName=$row['lastName'];
-$mobile=$row['mobile'];
 $emailAddress=$row['emailAddress'];
 
 if(isset($_POST['submit'])){
     $firstName=$_POST['firstName'];
     $lastName=$_POST['lastName'];
-    $mobile=$_POST['mobile'];
     $emailAddress=$_POST['emailAddress'];
 
-    $sql="update `new_users` set id=$id,firstName='$firstName',lastName='$lastName',mobile='$mobile',emailAddress='$emailAddress'";
+    $sql="update `new_users` set id=$id,firstName='$firstName',lastName='$lastName',emailAddress='$emailAddress'";
     $result=mysqli_query($con,$sql);
     if($result){
         echo "Updated Successfully";
@@ -60,34 +58,70 @@ if(isset($_POST['submit'])){
     </nav>
 
     <div class="row">
-        <div class="col col-lg-2">
-            <div class="d-flex flex-column flex-shrink-0 p-3 bg-dark" style="width: 280px; height: 100%;">
-                <a href="index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none text-light">
-                <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-                <span class="fs-4">Dashboard</span>
-                </a>
-                    <hr>
-                <ul class="nav nav-pills flex-column mb-auto">
-                    <li class="nav-item">
-                        <a href="product.php" class="nav-link link-body-emphasis text-light">
-                        <i class="bi bi-cart3"></i>
-                        Product
-                        </a>
-                    </li>
-                    <li>
-                        <a href="customer.php" class="nav-link link-body-emphasis text-light">
-                        <i class="bi bi-person"></i>
-                        Costumer
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./views/transaction_page.php" class="nav-link link-body-emphasis text-light">
-                        <i class="bi bi-clipboard-data"></i>
-                            Transaction
-                        </a>
-                    </li>
+    <div class="flex-shrink-0 p-3 bg-dark" style="width: 290px; height: 92vh">
+            <a href="/" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
+            <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+            <span class="fs-5 fw-semibold text-light">Dashboard</span>
+            </a>
+            <ul class="list-unstyled ps-0">
+            <li class="mb-1">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 text-light" data-bs-toggle="collapse" data-bs-target="#product-collapse" aria-expanded="true">
+                Product
+                </button>
+                <div class="collapse show" id="product-collapse" style="">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ps-3">
+                    <li><a href="list_of_products.php" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">List of Product</a></li>
+                    <li><a href="type_of_products.php" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">Type of Product</a></li>
                 </ul>
-            </div>
+                </div>
+            </li>
+            <li class="mb-1">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed text-light" data-bs-toggle="collapse" data-bs-target="#customer-collapse" aria-expanded="false">
+                Customer
+                </button>
+                <div class="collapse" id="customer-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ps-3">
+                    <li><a href="list_of_costumers.php" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">List of Customers</a></li>
+                    <li><a href="location_of_customers.php" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">Location of Customers</a></li>
+                </ul>
+                </div>
+            </li>
+            <li class="mb-1">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed text-light" data-bs-toggle="collapse" data-bs-target="#supplier-collapse" aria-expanded="false">
+                Supplier
+                </button>
+                <div class="collapse" id="supplier-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ps-3">
+                    <li><a href="supplier.php" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">List of Supplier</a></li>
+                </ul>
+                </div>
+            </li>
+            <li class="mb-1">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed text-light" data-bs-toggle="collapse" data-bs-target="#transaction-collapse" aria-expanded="false">
+                Transaction
+                </button>
+                <div class="collapse" id="transaction-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ps-3">
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">Purchase</a></li>
+                    <li><a href="list_of_costumers.php" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">Sales</a></li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">Return Sales</a></li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">List of Sales</a></li>
+                    
+                </ul>
+                </div>
+            </li>
+            <li class="mb-1">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed text-light" data-bs-toggle="collapse" data-bs-target="#report-collapse" aria-expanded="false">
+                Report
+                </button>
+                <div class="collapse" id="report-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ps-3">
+                    <li><a href="list_of_costumers.php" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">Income</a></li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">Ledger</a></li>
+                </ul>
+                </div>
+            </li>
+            </ul>
         </div>
         <div class="col ms-5">
             <div class="container m-5">
@@ -97,92 +131,15 @@ if(isset($_POST['submit'])){
                 <hr>
                 <form method="post">
 
-                    <h2>Personal</h2>
-
-                   
+                <h2>Personal Information</h2>
                     <div class="mb-3 row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label fw-bold">Area</label>
-                        <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputPassword">
-                        </div>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
-                            Personal
-                        </label>
-                        </div>
-                        <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                        <label class="form-check-label" for="flexRadioDefault2">
-                            Corporate
-                        </label>
-                    </div>
-
-
-                    <h2>Personal Information</h2>
-                    <div class="mb-3 row">
-                    <div class="row">
-                        <div class="col">
-                            <input type="text" name="firstName" class="form-control" placeholder="First name" aria-label="First name">
-                        </div>
-                        <div class="col">
-                            <input type="text" name="lastName" class="form-control" placeholder="Last name" aria-label="Last name">
-                        </div>
-                    </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label fw-bold">Address</label>
-                        <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputPassword">
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label fw-bold">Place of Birth</label>
-                        <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputPassword">
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label fw-bold">Date of Birth</label>
-                        <div class="col-sm-10">
-                        <input type="date" class="form-control" id="inputPassword">
-                        </div>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
-                            Female
-                        </label>
-                        </div>
-                        <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                        <label class="form-check-label" for="flexRadioDefault2">
-                            Male
-                        </label>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label fw-bold">Civil Status</label>
-                        <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputPassword">
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label fw-bold">Citizenship</label>
-                        <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputPassword">
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label fw-bold">Occupation</label>
-                        <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputPassword">
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label fw-bold">Tin</label>
-                        <div class="col-sm-10">
-                        <input type="number" class="form-control" id="inputPassword">
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" name="firstName" class="form-control" placeholder="First name" aria-label="First name">
+                            </div>
+                            <div class="col">
+                                <input type="text" name="lastName" class="form-control" placeholder="Last name" aria-label="Last name">
+                            </div>
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -198,45 +155,8 @@ if(isset($_POST['submit'])){
                         </div>
                     </div>
 
-                    <h2>Corporate Information</h2>
-                    <div class="mb-3 row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label fw-bold">Company Name</label>
-                        <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputPassword">
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label fw-bold">Company Address</label>
-                        <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputPassword">
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label fw-bold">Nature of Business</label>
-                        <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputPassword">
-                        </div>
-                    </div>
-                    <h2>Conditions</h2>
-                    <div class="mb-3 row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label fw-bold">Date open</label>
-                        <div class="col-sm-10">
-                        <input type="number" class="form-control" id="inputPassword">
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label fw-bold">Approved By</label>
-                        <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputPassword">
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label fw-bold">Remarks</label>
-                        <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputPassword">
-                        </div>
-                    </div> 
-                    <button type="submit" name="submit" class="btn btn-success" id="liveAlertBtn"><i class="bi bi-plus-square"></i> Update</button>
+                    <button type="submit" name="submit" class="btn btn-success" id="liveAlertBtn"><i class="bi bi-plus-square"></i> Add</button>
+                    <button type="button" name="submit" class="btn btn-danger"><a href="list_of_products.php"><i class="bi bi-x-circle"></i> Cancel</a></button>
                 </form>
                 <br>
                 

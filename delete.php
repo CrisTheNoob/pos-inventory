@@ -3,26 +3,39 @@ include 'connec.php';
 if(isset($_GET['deleteid'])){
     $id=$_GET['deleteid'];
 
-    $sql="delete from `new_product_items` where id=$id";
+    $sql="delete from `product_item` where id=$id";
     $result=mysqli_query($con,$sql);
     if($result){
         // echo "Deleted Successfull";
-        header('location:product_page.php');
+        header('location:list_of_products.php');
+        // echo '<h1>Delete Successfull</h1>';
     }else{
         die(mysqli_error($con));
     }
 }
+
+// if(isset($_GET['deleteid'])){
+//     $id=$_GET['deleteid'];
+
+//     $sql="delete from `product_item` where id=$id";
+//     $result=mysqli_query($con,$sql);
+//     if($result){
+//         header('location:type_of_products.php');
+//     }else{
+//         die(mysqli_error($con));
+//     }
+// }
 
 if(isset($_GET['deleteid'])){
     $id=$_GET['deleteid'];
 
-    $sql="delete from `new_users` where id=$id";
+    $sql="delete from `customers_db` where id=$id";
     $result=mysqli_query($con,$sql);
     if($result){
-        header('location:customer_page.php');
+        header('location:list_of_costumers.php');
     }else{
         die(mysqli_error($con));
     }
 }
 
-?>
+// ?>

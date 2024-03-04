@@ -1,6 +1,7 @@
-<!-- <?php
-    include 'connec.php';
-?> -->
+<?php
+include 'connec.php';
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="icon" href="./img/POS.png" type="image/x-icon">
-    <link rel="stylesheet" href="./assets/css/style.css">
 
     <!-- link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -18,35 +18,23 @@
     <!-- icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- icons -->
+
     <style>
-    :root {
-    --offcanvas-width: 290px;
-    }
-    @media (min-width: 992px) {
-    main {
-        margin-left: var(--offcanvas-width);
-    }
-    .sidebar-nav {
-        transform: none;
-        visibility: visible !important;
-    }
+    .items {
+            margin-left: 60px;
     }
     </style>
-
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-dark">
-    <div class="container-fluid bg-dark">
-        <a class="navbar-brand fw-bold text-uppercase text-light" href="#">Point of Sale_Inventory</a>
-    </div>
+        <div class="container-fluid bg-dark">
+            <a class="navbar-brand fw-bold text-uppercase text-light" href="#">Point of Sale_Inventory</a>
+        </div>
     </nav>
 
-
-    
-
     <div class="row">
-        <div class="flex-shrink-0 p-3 bg-dark" style="width: 290px; height: 92vh">
-            <a href="/" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
+    <div class="flex-shrink-0 p-3 bg-dark" style="width: 280px; height: 92vh">
+            <a href="index.php" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
             <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
             <span class="fs-5 fw-semibold text-light">Dashboard</span>
             </a>
@@ -79,7 +67,7 @@
                 </button>
                 <div class="collapse" id="supplier-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ps-3">
-                    <li><a href="supplier.php" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">List of Supplier</a></li>
+                    <li><a href="list_of_costumers.php" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">List of Supplier</a></li>
                 </ul>
                 </div>
             </li>
@@ -89,7 +77,7 @@
                 </button>
                 <div class="collapse" id="transaction-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ps-3">
-                    <li><a href="purchase.php" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">Purchase</a></li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">Purchase</a></li>
                     <li><a href="list_of_costumers.php" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">Sales</a></li>
                     <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">Return Sales</a></li>
                     <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">List of Sales</a></li>
@@ -110,82 +98,64 @@
             </li>
             </ul>
         </div>
-        <div class="col ms-5">
-                    <div class="row ms-3">
-                        <div class="col-md-12 fw-bold fs-2">
-                            Dashboard
-                        </div>
+        <div class="col items">
+        <div class="px-3 py-2 border-bottom">
+                <div class="container">
+                    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                        <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+                            <li class="m-1">
+                                <button type="button" class="btn btn-success"><a href="add_supplier.php" class="nav-link text-dark"><i class="bi bi-plus-square"></i>New</a></button> 
+                            </li>
+                            <li class="m-1">
+                                <button type="button" class="btn btn-danger"><a href="index.php" class="nav-link text-dark"><i class="bi bi-x-lg"></i>Close</a></button> 
+                            </li>
+                        </ul>
                     </div>
-                    <div class="row ms-5">
-                        <div class="col-md-3">
-                            <div class="card text-bg-primary mb-3" style="max-width: 18rem; height: 200px">
-                                <div class="card-body">
-                                <h5 class="card-title"><i class="bi bi-people-fill"></i> Product</h5>
-                                <p class="card-text">0</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card text-bg-danger mb-3" style="max-width: 18rem; height: 200px">
-                                <div class="card-body">
-                                <h5 class="card-title"><i class="bi bi-files"></i> Customer</h5>
-                                <p class="card-text">0</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card text-bg-warning mb-3" style="max-width: 18rem; height: 200px">
-                                <div class="card-body">
-                                <h5 class="card-title"><i class="bi bi-clipboard2-data"></i> Transaction</h5>
-                                <p class="card-text">0</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card text-bg-success mb-3" style="max-width: 18rem; height: 200px">
-                                <div class="card-body">
-                                <h5 class="card-title"><i class="bi bi-receipt-cutoff"></i> New Products</h5>
-                                <p class="card-text">0</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card m-3">
-                                <div class="card-header">
-                                    <h1>Customer Tables</h1>
-                                </div>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table id="example" class="table table-striped data-table" style="width: 100%">
-                                            <thead>
-                                                <tr>
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Age</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                </div>
         </div>
+        <div class="container">
+            <h1>Supplier Lists</h1>
+            <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">ID No.</th>
+                <th scope="col">Name of Supplier</th>
+                <th scope="col">Email Address</th>
+                <!-- <th scope="col">Mobile</th> -->
+                <th scope="col">Address</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            <?php
+
+            $sql="Select * from `supplier`";
+            $result=mysqli_query($con,$sql);
+            if($result){
+                while($row=mysqli_fetch_assoc($result)){
+                    $id=$row['id'];
+                    $nameSupplier=$row['nameSupplier'];
+                    $emailAddress=$row['emailAddress'];
+                    // $mobile=$row['mobile'];
+                    $address=$row['address'];
+                    echo '<tr>
+                    <th scope="row">SUPPLIER-000'.$id.'</th>
+                    <td>'.$nameSupplier.'</td>
+                    <td>'.$emailAddress.'</td>
+                    <td>'.$address.'</td>
+                    <td>
+                    <button class="btn btn-primary"><a href="update_supplier.php?updateid='.$id.'" class="text-light"><i class="bi bi-pencil-square"></i>Update</a></button>
+                    <button class="btn btn-danger"><a href="delete.php?deleteid='.$id.'" class="text-light"><i class="bi bi-trash3"></i>Delete</a></button>
+                    </td>
+                </tr>';
+                }
+            }
+
+            ?>
+                
+            </tbody>
+            </table>
+            </div>
     </div>
 
 
