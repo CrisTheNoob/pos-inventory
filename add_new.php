@@ -5,10 +5,11 @@
         $itemCode=$_POST['itemCode'];
         $productName=$_POST['productName'];
         $productType=$_POST['productType'];
+        $unitCost=$_POST['unitCost'];
         $description=$_POST['description'];
 
-        $sql="insert into `product_item` (itemCode,productName,productType,description)
-        value('$itemCode','$productName','$productType','$description')";
+        $sql="insert into `product_item` (itemCode,productName,productType,unitCost,description)
+        value('$itemCode','$productName','$productType','$unitCost','$description')";
         $result=mysqli_query($con,$sql);
         if($result){
             // echo "Data inserted successfully";
@@ -49,24 +50,27 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-dark">
-        <div class="container-fluid bg-dark">
-            <a class="navbar-brand fw-bold text-uppercase text-light" href="#">Point of Sale_Inventory</a>
-        </div>
+<nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid bg-dark">
+        <a class="navbar-brand fw-bold text-uppercase text-light" href="#">Point of Sale_Inventory</a>
+    </div>
     </nav>
 
+
+    
+
     <div class="row">
-    <div class="flex-shrink-0 p-3 bg-dark" style="width: 280px; height: 92vh">
+        <div class="flex-shrink-0 p-3 bg-dark" style="width: 220px; height: 92vh">
             <a href="/" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
             <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
             <span class="fs-5 fw-semibold text-light">Dashboard</span>
             </a>
             <ul class="list-unstyled ps-0">
             <li class="mb-1">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 text-light" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 text-light" data-bs-toggle="collapse" data-bs-target="#product-collapse" aria-expanded="true">
                 Product
                 </button>
-                <div class="collapse show" id="home-collapse" style="">
+                <div class="collapse show" id="product-collapse" style="">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ps-3">
                     <li><a href="list_of_products.php" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">List of Product</a></li>
                     <li><a href="type_of_products.php" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">Type of Product</a></li>
@@ -74,20 +78,50 @@
                 </div>
             </li>
             <li class="mb-1">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed text-light" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed text-light" data-bs-toggle="collapse" data-bs-target="#customer-collapse" aria-expanded="false">
                 Customer
                 </button>
-                <div class="collapse" id="dashboard-collapse">
+                <div class="collapse" id="customer-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ps-3">
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">List of Customers</a></li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">Location of Customers</a></li>
+                    <li><a href="list_of_costumers.php" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">List of Customers</a></li>
+                    <li><a href="location_of_customers.php" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">Location of Customers</a></li>
                 </ul>
                 </div>
             </li>
             <li class="mb-1">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed text-light" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed text-light" data-bs-toggle="collapse" data-bs-target="#supplier-collapse" aria-expanded="false">
+                Supplier
+                </button>
+                <div class="collapse" id="supplier-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ps-3">
+                    <li><a href="supplier.php" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">List of Supplier</a></li>
+                </ul>
+                </div>
+            </li>
+            <li class="mb-1">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed text-light" data-bs-toggle="collapse" data-bs-target="#transaction-collapse" aria-expanded="false">
                 Transaction
                 </button>
+                <div class="collapse" id="transaction-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ps-3">
+                    <li><a href="purchase.php" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">Purchase</a></li>
+                    <li><a href="list_of_costumers.php" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">Sales</a></li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">Return Sales</a></li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">List of Sales</a></li>
+                    
+                </ul>
+                </div>
+            </li>
+            <li class="mb-1">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed text-light" data-bs-toggle="collapse" data-bs-target="#report-collapse" aria-expanded="false">
+                Report
+                </button>
+                <div class="collapse" id="report-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ps-3">
+                    <li><a href="list_of_costumers.php" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">Income</a></li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">Ledger</a></li>
+                </ul>
+                </div>
             </li>
             </ul>
         </div>
@@ -121,16 +155,16 @@
                         </select>
                     </div>
                     </div>
-                    <!-- <div class="mb-3 row">
-                        <label for="inputItemCode" class="col-sm-2 col-form-label fw-bold">Item Code</label>
-                        <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputItemCode" name="itemCode" autocomplete="off" readonly>
-                        </div>
-                    </div> -->
                     <div class="mb-3 row">
                         <label for="inputDescription" class="col-sm-2 col-form-label fw-bold">Product Name</label>
                         <div class="col-sm-10">
                         <input type="text" class="form-control" id="inputDescription" name="productName" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="unitCost" class="col-sm-2 col-form-label fw-bold">Unit Cost</label>
+                        <div class="col-sm-10">
+                        <input type="number" class="form-control" id="unitCost" name="unitCost" autocomplete="off">
                         </div>
                     </div>
                     <div class="mb-3 row">

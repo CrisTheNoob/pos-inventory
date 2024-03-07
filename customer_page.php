@@ -34,7 +34,7 @@ include 'connec.php';
 
     <div class="row">
         <div class="col col-lg-2">
-            <div class="d-flex flex-column flex-shrink-0 p-3 bg-dark" style="width: 280px; height: 94vh;">
+            <div class="d-flex flex-column flex-shrink-0 p-3 bg-dark" style="width: 220px; height: 94vh;">
                 <a href="index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none text-light">
                 <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
                 <span class="fs-4">Dashboard</span>

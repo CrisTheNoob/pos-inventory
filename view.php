@@ -2,12 +2,13 @@
 include 'connec.php';
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products</title>
+    <title>Supplier</title>
     <link rel="icon" href="./img/POS.png" type="image/x-icon">
 
     <!-- link -->
@@ -19,16 +20,9 @@ include 'connec.php';
     <!-- icons -->
 
     <style>
-        .col-width {
-            width: 200px;
-            max-width: 50%;
-        }
-        .items {
+    .items {
             margin-left: 60px;
-        }
-        a {
-            text-decoration: none;
-        }
+    }
     </style>
 </head>
 <body>
@@ -63,7 +57,7 @@ include 'connec.php';
                 <div class="collapse" id="customer-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ps-3">
                     <li><a href="list_of_costumers.php" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">List of Customers</a></li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">Location of Customers</a></li>
+                    <li><a href="location_of_customers.php" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">Location of Customers</a></li>
                 </ul>
                 </div>
             </li>
@@ -83,7 +77,7 @@ include 'connec.php';
                 </button>
                 <div class="collapse" id="transaction-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ps-3">
-                    <li><a href="purchase.php" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">Purchase</a></li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">Purchase</a></li>
                     <li><a href="list_of_costumers.php" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">Sales</a></li>
                     <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">Return Sales</a></li>
                     <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">List of Sales</a></li>
@@ -105,71 +99,70 @@ include 'connec.php';
             </ul>
         </div>
         <div class="col items">
-            <div class="px-3 py-2 border-bottom">
+        <div class="px-3 py-2 border-bottom">
                 <div class="container">
                     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                         <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
                             <li class="m-1">
-                                <button type="button" class="btn btn-success"><a href="add_new.php" class="nav-link text-dark"><i class="bi bi-plus-square"></i>New</a></button> 
-                            </li>
-                            <li class="m-1">
-                                <button type="button" class="btn btn-danger"><a href="index.php" class="nav-link text-dark"><i class="bi bi-x-lg"></i>Close</a></button> 
+                                <button type="button" class="btn btn-danger"><a href="purchase.php" class="nav-link text-dark"><i class="bi bi-x-lg"></i>Close</a></button> 
                             </li>
                         </ul>
                     </div>
                 </div>
-            </div>
-            <div class="container">
-                <h1>List of Products</h1>
-            <table class="table">
-            <thead>
-                <tr>
-                <th scope="col">Item code</th>
-                <th scope="col">Product Name</th>
-                <th scope="col">Description</th>
-                </tr>
-            </thead>
-            <tbody>
-
+        </div>
+        <div class="container">
+            
             <?php
 
-            $sql="Select * from `product_item`";
+            include 'connec.php';
+            $id=$_GET['viewid'];
+            $sql="Select * from `product_item` where id=$id";
             $result=mysqli_query($con,$sql);
-            if($result){
+            if($result) {
                 while($row=mysqli_fetch_assoc($result)){
-                    $id=$row['id'];
-                    // $type=$row['type'];
-                    // $itemCode=$row['itemCode'];
+                    $nameSupplier=$row['nameSupplier'];
+                    $emailAddress=$row['emailAddress'];
+                    $address=$row['address'];
                     $productName=$row['productName'];
-                    // $productType=$row['productType'];
-                    $descripton=$row['description'];
-                    echo '<tr>
-                    <th>POS-000'.$id.'</th>
-                    <td>'.$productName.'</td>
-                    <td>'.$descripton.'</td>
-                    <td>
-                    <button class="btn btn-primary"><a href="update.php?updateid='.$id.'" class="text-light"><i class="bi bi-pencil-square"></i>Update</a></button>
-                    <button class="btn btn-danger"><a href="delete.php?deleteid='.$id.'" class="text-light"><i class="bi bi-trash3"></i>Delete</a></button>
-                    </td>
-                </tr> ';
+                    $productType=$row['productType'];
+                    $description=$row['description'];
+                    $unitCost=$row['unitCost'];
+
+                    echo '<div class="container">
+                    <div><h1>Name of Supplier: '.$nameSupplier.'</h1></div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope=""col>Product Type</th>
+                                <th scope=""col>Product Name</th>
+                                <th scope=""col>Address</th>
+                                <th scope=""col>Email Address</th>
+                                <th scope=""col>Unit Cost</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">'.$productType.'</th>
+                                <td>'.$productName.'</td>
+                                <td>'.$address.'</td>
+                                <td>'.$emailAddress.'</td>
+                                <td>'.$unitCost.'</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    
+                    ';
                 }
             }
-
-
             ?>
-            </tbody>
-            </table>
             </div>
-        </div>
     </div>
 
 
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-    <script>
-        
-    </script>
     
 </body>
 </html>

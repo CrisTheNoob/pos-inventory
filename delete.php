@@ -26,16 +26,16 @@ if(isset($_GET['deleteid'])){
 //     }
 // }
 
-if(isset($_GET['deleteid'])){
-    $id=$_GET['deleteid'];
+// if(isset($_GET['deleteid'])){
+//     $id=$_GET['deleteid'];
 
-    $sql="delete from `customers_db` where id=$id";
-    $result=mysqli_query($con,$sql);
-    if($result){
-        header('location:list_of_costumers.php');
-    }else{
-        die(mysqli_error($con));
-    }
-}
+//     $sql="delete from `customers_db` where id=$id";
+//     $result=mysqli_query($con,$sql);
+//     if($result){
+//         header('location:list_of_costumers.php');
+//     }else{
+//         die(mysqli_error($con));
+//     }
+// }
 
 // ?>

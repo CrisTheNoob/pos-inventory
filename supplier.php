@@ -33,7 +33,7 @@ include 'connec.php';
     </nav>
 
     <div class="row">
-    <div class="flex-shrink-0 p-3 bg-dark" style="width: 280px; height: 92vh">
+    <div class="flex-shrink-0 p-3 bg-dark" style="width: 220px; height: 92vh">
             <a href="index.php" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
             <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
             <span class="fs-5 fw-semibold text-light">Dashboard</span>
@@ -67,7 +67,7 @@ include 'connec.php';
                 </button>
                 <div class="collapse" id="supplier-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ps-3">
-                    <li><a href="list_of_costumers.php" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">List of Supplier</a></li>
+                    <li><a href="supplier.php" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">List of Supplier</a></li>
                 </ul>
                 </div>
             </li>
@@ -129,7 +129,7 @@ include 'connec.php';
 
             <?php
 
-            $sql="Select * from `supplier`";
+            $sql="Select * from `product_item`";
             $result=mysqli_query($con,$sql);
             if($result){
                 while($row=mysqli_fetch_assoc($result)){
@@ -145,7 +145,7 @@ include 'connec.php';
                     <td>'.$address.'</td>
                     <td>
                     <button class="btn btn-primary"><a href="update_supplier.php?updateid='.$id.'" class="text-light"><i class="bi bi-pencil-square"></i>Update</a></button>
-                    <button class="btn btn-danger"><a href="delete.php?deleteid='.$id.'" class="text-light"><i class="bi bi-trash3"></i>Delete</a></button>
+                    <button class="btn btn-danger"><a href="delete_supplier.php?deleteid='.$id.'" class="text-light"><i class="bi bi-trash3"></i>Delete</a></button>
                     </td>
                 </tr>';
                 }

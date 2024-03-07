@@ -7,7 +7,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Purchase</title>
+        <title>Add New Purchase</title>
         <link rel="icon" href="./img/POS.png" type="image/x-icon">
         <link rel="stylesheet" href="./assets/css/style.css">
     
@@ -33,7 +33,7 @@
             transform: none;
             visibility: visible !important;
         }
-    }
+        }
         </style>
     
     </head>
@@ -49,7 +49,7 @@
     
         <div class="row">
             <div class="flex-shrink-0 p-3 bg-dark" style="width: 220px; height: 92vh">
-                <a href="index.php" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
+                <a href="/" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
                 <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
                 <span class="fs-5 fw-semibold text-light">Dashboard</span>
                 </a>
@@ -113,67 +113,56 @@
                 </li>
                 </ul>
             </div>
-            <div class="col items">
-            <div class="px-3 py-2 border-bottom">
-                <div class="container">
-                    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                        <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
-                            <li class="m-1">
-                                <button type="button" class="btn btn-success"><a href="new_purchase.php" class="nav-link text-dark"><i class="bi bi-plus-square"></i>Add new purchase</a></button> 
-                            </li>
-                            <li class="m-1">
-                                <button type="button" class="btn btn-danger"><a href="index.php" class="nav-link text-dark"><i class="bi bi-x-lg"></i>Close</a></button> 
-                            </li>
-                        </ul>
+            <div class="col">
+                <div class="row">
+                    <div class="col-md-12 fw-bold fs-2">
+                        Select Supplier
+                        <button class="btn btn-danger ms-3"><a href="purchase.php" class="text-light"></a>Cancel</button>    
                     </div>
                 </div>
+                <div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID number</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email Address</th>
+                            <th scope="col">Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+
+                        $sql="Select * from `product_item`";
+                        $result=mysqli_query($con,$sql);
+                        if($result){
+                            while($row=mysqli_fetch_assoc($result)){
+                                $id=$row['id'];
+                                $nameSupplier=$row['nameSupplier'];
+                                $emailAddress=$row['emailAddress'];
+                                $address=$row['address'];
+                                $productName=$row['productName'];
+                                $unitCost=$row['unitCost'];
+                                echo '<tr>
+                                <th scope="row">SUPPLIER-000'.$id.'</th>
+                                <td>'.$nameSupplier.'</td>
+                                <td>'.$emailAddress.'</td>
+                                <td>'.$address.'</td>
+                                <td>'.$productName.'</td>
+                                <td>'.$unitCost.'</td>
+                                <td>
+                                <button class="btn btn-primary"><a href="purchase.php?updateid='.$id.'" class="text-light"><i class="bi bi-pencil-square"></i>Select</a></button>
+                                </td>
+                            </tr>';
+                            }
+                        }
+
+                        ?>
+                    </tbody>
+                </table>
+                </div>
+
             </div>
-            <div class="container">
-                <h1>Purchase</h1>
-            <table class="table">
-            <thead>
-                <tr>
-                <th scope="col">ID No.</th>
-                <!-- <th scope="col">Date</th> -->
-                <th scope="col">Supplier</th>
-                <!-- <th scope="col">Quantity</th> -->
-                <th scope="col">Product Type</th>
-                </tr>
-            </thead>
-            <tbody>
-
-            <?php
-
-            $sql="Select * from `product_item`";
-            $result=mysqli_query($con,$sql);
-            if($result){
-                while($row=mysqli_fetch_assoc($result)){
-                    $id=$row['id'];
-                    // $type=$row['type'];
-                    // $itemCode=$row['itemCode'];
-                    $nameSupplier=$row['nameSupplier'];
-                    // $productName=$row['productName'];
-                    // $productType=$row['productType'];
-                    // $descripton=$row['description'];
-                    $productType=$row['productType'];
-                    echo '<tr>
-                    <th>POS-000'.$id.'</th>
-                    <td>'.$nameSupplier.'</td>
-                    <td>'.$productType.'</td>
-                    <td>
-                    <button class="btn btn-primary"><a href="view.php?viewid='.$id.'" class="text-light"><i class="bi bi-view-stacked"></i> View</a></button>
-                    <button class="btn btn-danger"><a href="delete.php?deleteid='.$id.'" class="text-light"><i class="bi bi-trash3"></i> Delete</a></button>
-                    </td>
-                </tr> ';
-                }
-            }
-
-
-            ?>
-            </tbody>
-            </table>
-            </div>
-        </div>
         </div>
     
     

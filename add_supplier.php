@@ -4,9 +4,13 @@ if(isset($_POST['submit'])){
     $nameSupplier=$_POST['nameSupplier'];
     $emailAddress=$_POST['emailAddress'];
     $address=$_POST['address'];
+    $productName=$_POST['productName'];
+    $productType=$_POST['productType'];
+    $description=$_POST['description'];
+    $unitCost=$_POST['unitCost'];
 
-    $sql="insert into `supplier` (nameSupplier,emailAddress,address)
-    value('$nameSupplier','$emailAddress','$address')";
+    $sql="insert into `product_item` (nameSupplier,emailAddress,address,productName,productType,description,unitCost)
+    value('$nameSupplier','$emailAddress','$address','$productName','$productType','$description','$unitCost')";
     $result=mysqli_query($con,$sql);
     if($result){
         header('location:supplier.php');
@@ -51,7 +55,7 @@ if(isset($_POST['submit'])){
     </nav>
 
     <div class="row">
-    <div class="flex-shrink-0 p-3 bg-dark" style="width: 290px; height: 92vh">
+    <div class="flex-shrink-0 p-3 bg-dark" style="width: 220px; height: 92vh">
             <a href="/" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
             <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
             <span class="fs-5 fw-semibold text-light">Dashboard</span>
@@ -140,6 +144,41 @@ if(isset($_POST['submit'])){
                         <label for="inputPassword" class="col-sm-2 col-form-label fw-bold">Email Address</label>
                         <div class="col-sm-10">
                         <input type="email" class="form-control" id="inputPassword" name="emailAddress" placeholder="Email Address">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="inputType" class="col-sm-2 col-form-label fw-bold">Product Type</label>
+                        <div class="col-sm-10">
+                        <select class="form-select" aria-label="Default select example" name="productType">
+                            <option selected>Select Type</option>
+                            <option value="Generic product">Generic product</option>
+                            <option value="Service">Service</option>
+                            <option value="Consumer goods">Consumer goods</option>
+                            <option value="Food">Food</option>
+                            <option value="Soap">Soap</option>
+                            <option value="Clothing">Clothing</option>
+                            <option value="Capital goods">Capital goods</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="Products">Products</option>
+                            <option value="Toothpaste">Toothpaste</option>
+                            <option value="Phones">Phones</option>
+                            <option value="Component materials">Component materials</option>
+                            <option value="Essential equipment">Essential equipment</option>
+                            <option value="Raw materials">Raw materials</option>
+                            <option value="Unsought goods">Unsought goods</option>
+                        </select>
+                    </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="inputDescription" class="col-sm-2 col-form-label fw-bold">Product Name</label>
+                        <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputDescription" name="productName" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="unitCost" class="col-sm-2 col-form-label fw-bold">Unit Cost</label>
+                        <div class="col-sm-10">
+                        <input type="number" class="form-control" id="unitCost" name="unitCost" autocomplete="off">
                         </div>
                     </div>
 

@@ -33,7 +33,7 @@ include 'connec.php';
     </nav>
 
     <div class="row">
-    <div class="flex-shrink-0 p-3 bg-dark" style="width: 280px; height: 92vh">
+    <div class="flex-shrink-0 p-3 bg-dark" style="width: 220px; height: 92vh">
             <a href="index.php" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
             <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
             <span class="fs-5 fw-semibold text-light">Dashboard</span>
@@ -77,7 +77,7 @@ include 'connec.php';
                 </button>
                 <div class="collapse" id="transaction-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ps-3">
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">Purchase</a></li>
+                    <li><a href="purchase.php" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">Purchase</a></li>
                     <li><a href="list_of_costumers.php" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">Sales</a></li>
                     <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">Return Sales</a></li>
                     <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded text-light">List of Sales</a></li>
@@ -128,7 +128,7 @@ include 'connec.php';
             <tbody>
 
             <?php
-
+            // configure for reading customer in mysql
             $sql="Select * from `customers_db`";
             $result=mysqli_query($con,$sql);
             if($result){
