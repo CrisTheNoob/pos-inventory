@@ -53,7 +53,7 @@ if(isset($_POST['submit'])){
     </nav>
 
     <div class="row">
-    <div class="flex-shrink-0 p-3 bg-dark" style="width: 220px; height: 92vh">
+    <div class="flex-shrink-0 p-3 bg-dark" style="width: 220px; height: 150vh">
             <a href="/" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
             <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
             <span class="fs-5 fw-semibold text-light">Dashboard</span>
@@ -120,47 +120,148 @@ if(isset($_POST['submit'])){
         </div>
         <div class="col ms-5">
             <div class="container m-5">
-                <h1>Adding new customer</h1>
-                <br>
-                <div id="liveAlertPlaceholder"></div>
-                <hr>
-                <form method="post">
-                    <h2>Personal Information</h2>
+            <form method="POST">
                     <div class="mb-3 row">
-                    <div class="row">
+                        <h2>Personal</h2>
+                        <div class="mb-3 row">
+                            <label for="inputDescription" class="col-sm-2 col-form-label fw-bold">ID</label>
+                            <div class="col-sm-10">
+                            <input type="number" class="form-control" id="inputDescription" name="id" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="inputDescription" class="col-sm-2 col-form-label fw-bold">Area</label>
+                            <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputDescription" name="area" autocomplete="off">
+                            </div>
+                        </div>
+                        <label for="inputType" class="col-sm-2 col-form-label fw-bold">Price Level</label>
+                        <div class="col-sm-10">
+                            <select class="form-select" aria-label="Default select example" name="type">
+                                <option selected>Select Type</option>
+                                <option value="level1">Level 1</option>
+                                <option value="level2">Level 2</option>
+                                <option value="level3">Level 3</option>
+                                <option value="level4">Level 4</option>
+                                <option value="level5">Level 5</option>
+                            </select>
+                        </div>
+                    </div>
+                    <h2>Personal Information</h2>
+                    <div class="row m-2">
                         <div class="col">
                             <input type="text" name="firstName" class="form-control" placeholder="First name" aria-label="First name">
                         </div>
                         <div class="col">
                             <input type="text" name="lastName" class="form-control" placeholder="Last name" aria-label="Last name">
                         </div>
-                    </div>
+                        <div class="col">
+                            <input type="text" name="middleName" class="form-control" placeholder="Middle name" aria-label="Middle name">
+                        </div>
                     </div>
                     <div class="mb-3 row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label fw-bold">Address</label>
+                        <label for="inputDescription" class="col-sm-2 col-form-label fw-bold">Address</label>
                         <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputPassword" name="location">
-                        </div>
-                    </div>
-
-                    <div class="mb-3 row">
-                        <label for="tel" class="col-sm-2 col-form-label fw-bold">Mobile</label>
-                        <div class="col-sm-10"> 
-                        <input type="tel" class="form-control" id="tel" name="mobile" >
+                        <input type="text" class="form-control" id="inputDescription" name="address" autocomplete="off">
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label fw-bold">Email Address</label>
+                        <label for="inputUnit" class="col-sm-2 col-form-label fw-bold">Date of Birth</label>
                         <div class="col-sm-10">
-                        <input type="email" class="form-control" id="inputPassword" name="emailAddress">
+                        <input type="date" class="form-control" id="inputUnit" name="className" autocomplete="off">
                         </div>
                     </div>
-
+                    <div class="mb-3 row">
+                        <label for="unitCost" class="col-sm-2 col-form-label fw-bold">Sex</label>
+                        <div class="col-sm-10">
+                            <div class="form-check">
+                            <input class="form-check-input" type="radio" name="male" id="male">
+                                <label class="form-check-label" for="male">
+                                    Male
+                                </label>
+                                </div>
+                                <div class="form-check">
+                                <input class="form-check-input" type="radio" name="female" id="female">
+                                <label class="form-check-label" for="female">
+                                    Female
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="inputUnit" class="col-sm-2 col-form-label fw-bold">Place of Birth</label>
+                        <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputUnit" name="placeOfBirth" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="inputUnit" class="col-sm-2 col-form-label fw-bold">Civil Status</label>
+                        <div class="col-sm-10">
+                            <select class="form-select" aria-label="Default select example" name="type">
+                                <option selected>Select Type</option>
+                                <option value="level1">Single</option>
+                                <option value="level2">Married</option>
+                                <option value="level3">Divorced</option>
+                                <option value="level4">widowed</option>
+                                <option value="level5">Civil partnership</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="inputUnit" class="col-sm-2 col-form-label fw-bold">Citizenahip</label>
+                        <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputUnit" name="level2" autocomplete="off" placeholder="000.00">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="inputUnit" class="col-sm-2 col-form-label fw-bold">Occupation</label>
+                        <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputUnit" name="level3" autocomplete="off" placeholder="000.00">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="inputUnit" class="col-sm-2 col-form-label fw-bold">TIn #</label>
+                        <div class="col-sm-10">
+                        <input type="number" class="form-control" id="inputUnit" name="level4" autocomplete="off" placeholder="000.00">
+                        </div>
+                    </div>
+                    <h2>Corporate Information</h2>
+                    <div class="mb-3 row">
+                        <label for="inputUnit" class="col-sm-2 col-form-label fw-bold">Company Name</label>
+                        <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputUnit" name="level5" autocomplete="off" placeholder="000.00">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="inputUnit" class="col-sm-2 col-form-label fw-bold">Company Address</label>
+                        <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputUnit" name="unitCost" autocomplete="off" placeholder="100.00">
+                        </div>
+                    </div>
+                    <h2>Conditions</h2>
+                    <div class="mb-3 row">
+                        <label for="inputUnit" class="col-sm-2 col-form-label fw-bold">Date Open</label>
+                        <div class="col-sm-10">
+                        <input type="date" class="form-control" id="inputUnit" name="unit" autocomplete="off" placeholder="pcs">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="inputUnit" class="col-sm-2 col-form-label fw-bold">Approved by:</label>
+                        <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputUnit" name="price" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="inputUnit" class="col-sm-2 col-form-label fw-bold">Remarks</label>
+                        <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputUnit" name="quantity" autocomplete="off">
+                        </div>
+                    </div>
                     <button type="submit" name="submit" class="btn btn-success" id="liveAlertBtn"><i class="bi bi-plus-square"></i> Add</button>
-
+                    <button type="button" name="submit" class="btn btn-danger"><a href="list_of_products.php"><i class="bi bi-x-circle"></i> Cancel</a></button>  
                 </form>
                 <br>
-                <button type="button" class="btn btn-danger"><a href="location_of_customers.php">Close</a></button>
+                <!-- <button type="button" class="btn btn-danger"><a href="location_of_customers.php">Close</a></button> -->
             </div>
         </div>
     </div>

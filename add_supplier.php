@@ -146,41 +146,6 @@ if(isset($_POST['submit'])){
                         <input type="email" class="form-control" id="inputPassword" name="emailAddress" placeholder="Email Address">
                         </div>
                     </div>
-                    <div class="mb-3 row">
-                        <label for="inputType" class="col-sm-2 col-form-label fw-bold">Product Type</label>
-                        <div class="col-sm-10">
-                        <select class="form-select" aria-label="Default select example" name="productType">
-                            <option selected>Select Type</option>
-                            <option value="Generic product">Generic product</option>
-                            <option value="Service">Service</option>
-                            <option value="Consumer goods">Consumer goods</option>
-                            <option value="Food">Food</option>
-                            <option value="Soap">Soap</option>
-                            <option value="Clothing">Clothing</option>
-                            <option value="Capital goods">Capital goods</option>
-                            <option value="Electronics">Electronics</option>
-                            <option value="Products">Products</option>
-                            <option value="Toothpaste">Toothpaste</option>
-                            <option value="Phones">Phones</option>
-                            <option value="Component materials">Component materials</option>
-                            <option value="Essential equipment">Essential equipment</option>
-                            <option value="Raw materials">Raw materials</option>
-                            <option value="Unsought goods">Unsought goods</option>
-                        </select>
-                    </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="inputDescription" class="col-sm-2 col-form-label fw-bold">Product Name</label>
-                        <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputDescription" name="productName" autocomplete="off">
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="unitCost" class="col-sm-2 col-form-label fw-bold">Unit Cost</label>
-                        <div class="col-sm-10">
-                        <input type="number" class="form-control" id="unitCost" name="unitCost" autocomplete="off">
-                        </div>
-                    </div>
 
                     <button type="submit" name="submit" class="btn btn-success" id="liveAlertBtn"><i class="bi bi-plus-square"></i> Add</button>
 

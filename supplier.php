@@ -129,19 +129,17 @@ include 'connec.php';
 
             <?php
 
-            $sql="Select * from `product_item`";
+            $sql="Select * from `supplier_db`";
             $result=mysqli_query($con,$sql);
             if($result){
                 while($row=mysqli_fetch_assoc($result)){
                     $id=$row['id'];
-                    $nameSupplier=$row['nameSupplier'];
-                    $emailAddress=$row['emailAddress'];
-                    // $mobile=$row['mobile'];
+                    $supplierName=$row['supplierName'];
                     $address=$row['address'];
+                    // $mobile=$row['mobile'];
                     echo '<tr>
                     <th scope="row">SUPPLIER-000'.$id.'</th>
-                    <td>'.$nameSupplier.'</td>
-                    <td>'.$emailAddress.'</td>
+                    <td>'.$supplierName.'</td>
                     <td>'.$address.'</td>
                     <td>
                     <button class="btn btn-primary"><a href="update_supplier.php?updateid='.$id.'" class="text-light"><i class="bi bi-pencil-square"></i>Update</a></button>

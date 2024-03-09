@@ -118,32 +118,23 @@ include 'connec.php';
             <table class="table">
             <thead>
                 <tr>
-                <th scope="col">ID Number</th>
-                <th scope="col">First Name</th>
-                <th scope="col">Last Name</th>
-                <th scope="col">Customer Location</th>
-                <th scope="col">Date and Time</th>
+                <th scope="col">Location Number</th>
+                <th scope="col">Name</th>
                 </tr>
             </thead>
             <tbody>
 
             <?php
 
-            $sql="Select * from `customers_db`";
+            $sql="Select * from `customer_db`";
             $result=mysqli_query($con,$sql);
             if($result){
                 while($row=mysqli_fetch_assoc($result)){
                     $id=$row['id'];
-                    $firstName=$row['firstName'];
-                    $lastName=$row['lastName'];
-                    $location=$row['location'];
-                    $date=$row['date'];
+                    $address=$row['address'];
                     echo '<tr>
                     <th scope="row">CUSTOMER-000'.$id.'</th>
-                    <td>'.$firstName.'</td>
-                    <td>'.$lastName.'</td>
-                    <td>'.$location.'</td>
-                    <td>'.$date.'</td>
+                    <td>'.$address.'</td>
                     <td>
                     <button class="btn btn-primary"><a href="update_location.php?updateid='.$id.'" class="text-light"><i class="bi bi-pencil-square"></i>Update</a></button>
                     <button class="btn btn-danger"><a href="delete.php?deleteid='.$id.'" class="text-light"><i class="bi bi-trash3"></i>Delete</a></button>

@@ -1,14 +1,22 @@
 <?php
     include 'connec.php';
-    $id=$_GET['updateid'];
-    $sql="Select * from `product_item` where id=$id";
+    $itemCode=$_GET['updateid'];
+    $sql="Select * from `product_item` where itemCode=$itemCode";
     $result=mysqli_query($con,$sql);
     $row=mysqli_fetch_assoc($result);
     $itemCode=$row['itemCode'];
-    $productName=$row['productName'];
-    $productType=$row['productType'];
-    $unitCost=$row['unitCost'];
+    $type=$row['type'];
+    $className=$row['className'];
     $description=$row['description'];
+    $unitCost=$row['unitCost'];
+    $unit=$row['unit'];
+    $price=$row['price'];
+    $quantity=$row['quantity'];
+    $level1=$row['level1'];
+    $level2=$row['level2'];
+    $level3=$row['level3'];
+    $level4=$row['level4'];
+    $level5=$row['level5'];
 
 
 
@@ -16,14 +24,21 @@
 
     if(isset($_POST['submit'])){
         // $id=$_POST['id'];
-        $type=$_POST['type'];
-        $itemCode=$_POST['itemCode'];
-        $productName=$_POST['productName'];
-        $productType=$_POST['productType'];
-        $unitCost=$_POST['unitCost'];
-        $description=$_POST['description'];
+        $itemCode=$row['itemCode'];
+        $type=$row['type'];
+        $className=$row['className'];
+        $description=$row['description'];
+        $unitCost=$row['unitCost'];
+        $unit=$row['unit'];
+        $price=$row['price'];
+        $quantity=$row['quantity'];
+        $level1=$row['level1'];
+        $level2=$row['level2'];
+        $level3=$row['level3'];
+        $level4=$row['level4'];
+        $level5=$row['level5'];
 
-        $sql="update `product_item` set id=$id,type='$type',itemCode='$itemCode',productName='$productName',productType='$productType',unitCost='$unitCost', description='$description'";
+        $sql="update `product_item` set itemCode=$itemCode,type='$type',className='$className',description='$description',unitCost='$unitCost',unit='$unit', price='$price', quantity='$quntity', level1='$level1', level2='$level2', level3='$level3', level='$level4', level5='$level5'";
         $result=mysqli_query($con,$sql);
         if($result){
             echo "Updated successfully";
@@ -135,17 +150,14 @@
             </li>
             </ul>
         </div>
-        <div class="col ms-5">
-            <div class="container m-5">
-                <h1>Update Product</h1>
-                <br>
-                <div id="liveAlertPlaceholder"></div>
-                <hr>
+        <div class="col">
+            <div class="container m-3">
                 <form method="POST">
-                <div class="mb-3 row">
-                        <label for="inputType" class="col-sm-2 col-form-label fw-bold">Product Type</label>
-                        <div class="col-sm-10">
-                        <select class="form-select" aria-label="Default select example" name="productType">
+                    <h2>Add new product</h2>
+                    <div class="mb-3 row">
+                        <label for="inputType" class="col-sm-2 col-form-label fw-bold">Type</label>
+                        <div class="col-sm-5">
+                        <select class="form-select" aria-label="Default select example" name="type">
                             <option selected>Select Type</option>
                             <option value="Generic product">Generic product</option>
                             <option value="Service">Service</option>
@@ -166,27 +178,57 @@
                     </div>
                     </div>
                     <div class="mb-3 row">
-                        <label for="inputItemCode" class="col-sm-2 col-form-label fw-bold">Item Code</label>
-                        <div class="col-sm-10">
-                        <input type="number" class="form-control" id="inputItemCode" name="itemCode" autocomplete="off">
+                        <label for="itemCode" class="col-sm-2 col-form-label fw-bold">Item Code</label>
+                        <div class="col-sm-5">
+                        <input type="number" class="form-control" id="itemCode" name="itemCode" autocomplete="off">
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label for="inputDescription" class="col-sm-2 col-form-label fw-bold">Product Name</label>
-                        <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputDescription" name="productName" autocomplete="off">
+                        <label for="description" class="col-sm-2 col-form-label fw-bold">Description</label>
+                        <div class="col-sm-5">
+                        <input type="text" class="form-control" id="description" name="description" autocomplete="off">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label for="unitCost" class="col-sm-2 col-form-label fw-bold">Unit Cost</label>
-                        <div class="col-sm-10">
-                        <input type="number" class="form-control" id="unitCost" name="productName" autocomplete="off">
+                        <div class="col-sm-5">
+                        <input type="nnumber" class="form-control" id="unitCost" name="unitCost" autocomplete="off">
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label for="inputUnit" class="col-sm-2 col-form-label fw-bold">Description</label>
-                        <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputUnit" name="description" autocomplete="off">
+                        <label for="unit" class="col-sm-2 col-form-label fw-bold">Unit</label>
+                        <div class="col-sm-5">
+                        <input type="number" class="form-control" id="unit" name="unit" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="level1" class="col-sm-2 col-form-label fw-bold">Level 1</label>
+                        <div class="col-sm-5">
+                        <input type="number" class="form-control" id="level1" name="level1" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="level2" class="col-sm-2 col-form-label fw-bold">Level 2</label>
+                        <div class="col-sm-5">
+                        <input type="nunmber" class="form-control" id="level3" name="level2" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="level3" class="col-sm-2 col-form-label fw-bold">Level 3</label>
+                        <div class="col-sm-5">
+                        <input type="number" class="form-control" id="level3" name="level3" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="level4" class="col-sm-2 col-form-label fw-bold">Level 4</label>
+                        <div class="col-sm-5">
+                        <input type="number" class="form-control" id="level4" name="level4" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="level5" class="col-sm-2 col-form-label fw-bold">Level 5</label>
+                        <div class="col-sm-5">
+                        <input type="number" class="form-control" id="level5" name="level5" autocomplete="off">
                         </div>
                     </div>
                     <button type="submit" name="submit" class="btn btn-success" id="liveAlertBtn"><i class="bi bi-plus-square"></i> Add</button>

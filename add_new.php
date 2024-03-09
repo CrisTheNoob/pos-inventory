@@ -60,7 +60,7 @@
     
 
     <div class="row">
-        <div class="flex-shrink-0 p-3 bg-dark" style="width: 220px; height: 92vh">
+        <div class="flex-shrink-0 p-3 bg-dark" style="width: 220px; height: 130vh">
             <a href="/" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
             <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
             <span class="fs-5 fw-semibold text-light">Dashboard</span>
@@ -125,17 +125,14 @@
             </li>
             </ul>
         </div>
-        <div class="col ms-5">
-            <div class="container m-5">
-                <h1>Adding new item</h1>
-                <br>
-                <div id="liveAlertPlaceholder"></div>
-                <hr>
+        <div class="col">
+            <div class="container m-3">
                 <form method="POST">
+                    <h2>Add new product</h2>
                     <div class="mb-3 row">
-                        <label for="inputType" class="col-sm-2 col-form-label fw-bold">Product Type</label>
-                        <div class="col-sm-10">
-                        <select class="form-select" aria-label="Default select example" name="productType">
+                        <label for="inputType" class="col-sm-2 col-form-label fw-bold">Type</label>
+                        <div class="col-sm-5">
+                        <select class="form-select" aria-label="Default select example" name="type">
                             <option selected>Select Type</option>
                             <option value="Generic product">Generic product</option>
                             <option value="Service">Service</option>
@@ -156,21 +153,57 @@
                     </div>
                     </div>
                     <div class="mb-3 row">
-                        <label for="inputDescription" class="col-sm-2 col-form-label fw-bold">Product Name</label>
-                        <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputDescription" name="productName" autocomplete="off">
+                        <label for="itemCode" class="col-sm-2 col-form-label fw-bold">Item Code</label>
+                        <div class="col-sm-5">
+                        <input type="number" class="form-control" id="itemCode" name="itemCode" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="description" class="col-sm-2 col-form-label fw-bold">Description</label>
+                        <div class="col-sm-5">
+                        <input type="text" class="form-control" id="description" name="description" autocomplete="off">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label for="unitCost" class="col-sm-2 col-form-label fw-bold">Unit Cost</label>
-                        <div class="col-sm-10">
-                        <input type="number" class="form-control" id="unitCost" name="unitCost" autocomplete="off">
+                        <div class="col-sm-5">
+                        <input type="nnumber" class="form-control" id="unitCost" name="unitCost" autocomplete="off">
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label for="inputUnit" class="col-sm-2 col-form-label fw-bold">Description</label>
-                        <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputUnit" name="description" autocomplete="off">
+                        <label for="unit" class="col-sm-2 col-form-label fw-bold">Unit</label>
+                        <div class="col-sm-5">
+                        <input type="number" class="form-control" id="unit" name="unit" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="level1" class="col-sm-2 col-form-label fw-bold">Level 1</label>
+                        <div class="col-sm-5">
+                        <input type="number" class="form-control" id="level1" name="level1" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="level2" class="col-sm-2 col-form-label fw-bold">Level 2</label>
+                        <div class="col-sm-5">
+                        <input type="nunmber" class="form-control" id="level3" name="level2" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="level3" class="col-sm-2 col-form-label fw-bold">Level 3</label>
+                        <div class="col-sm-5">
+                        <input type="number" class="form-control" id="level3" name="level3" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="level4" class="col-sm-2 col-form-label fw-bold">Level 4</label>
+                        <div class="col-sm-5">
+                        <input type="number" class="form-control" id="level4" name="level4" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="level5" class="col-sm-2 col-form-label fw-bold">Level 5</label>
+                        <div class="col-sm-5">
+                        <input type="number" class="form-control" id="level5" name="level5" autocomplete="off">
                         </div>
                     </div>
                     <button type="submit" name="submit" class="btn btn-success" id="liveAlertBtn"><i class="bi bi-plus-square"></i> Add</button>

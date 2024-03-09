@@ -129,21 +129,20 @@ include 'connec.php';
 
             <?php
             // configure for reading customer in mysql
-            $sql="Select * from `customers_db`";
+            $sql="Select * from `customer_db`";
             $result=mysqli_query($con,$sql);
             if($result){
                 while($row=mysqli_fetch_assoc($result)){
                     $id=$row['id'];
                     $firstName=$row['firstName'];
                     $lastName=$row['lastName'];
+                    $middleInitial=$row['middleInitial'];
                     // $mobile=$row['mobile'];
                     $emailAddress=$row['emailAddress'];
                     $date=$row['date'];
                     echo '<tr>
                     <th scope="row">CUSTOMER-000'.$id.'</th>
-                    <td>'.$firstName.'</td>
-                    <td>'.$lastName.'</td>
-                    <td>'.$emailAddress.'</td>
+                    <td>'.$firstName. " " . $lastName.'</td>
                     <td>'.$date.'</td>
                     <td>
                     <button class="btn btn-primary"><a href="update_users.php?updateid='.$id.'" class="text-light"><i class="bi bi-pencil-square"></i>Update</a></button>

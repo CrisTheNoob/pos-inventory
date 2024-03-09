@@ -125,8 +125,8 @@ include 'connec.php';
             <thead>
                 <tr>
                 <th scope="col">Item code</th>
-                <th scope="col">Product Name</th>
-                <th scope="col">Description</th>
+                <th scope="col">Class</th>
+                <th scope="col">Type</th>
                 </tr>
             </thead>
             <tbody>
@@ -137,19 +137,19 @@ include 'connec.php';
             $result=mysqli_query($con,$sql);
             if($result){
                 while($row=mysqli_fetch_assoc($result)){
-                    $id=$row['id'];
+                    $itemCode=$row['itemCode'];
                     // $type=$row['type'];
                     // $itemCode=$row['itemCode'];
-                    $productName=$row['productName'];
+                    $className=$row['className'];
                     // $productType=$row['productType'];
-                    $descripton=$row['description'];
+                    $type=$row['type'];
                     echo '<tr>
-                    <th>POS-000'.$id.'</th>
-                    <td>'.$productName.'</td>
-                    <td>'.$descripton.'</td>
+                    <th>POS-000'.$itemCode.'</th>
+                    <td>'.$className.'</td>
+                    <td>'.$type.'</td>
                     <td>
-                    <button class="btn btn-primary"><a href="update.php?updateid='.$id.'" class="text-light"><i class="bi bi-pencil-square"></i>Update</a></button>
-                    <button class="btn btn-danger"><a href="delete.php?deleteid='.$id.'" class="text-light"><i class="bi bi-trash3"></i>Delete</a></button>
+                    <button class="btn btn-primary"><a href="update.php?updateid='.$itemCode.'" class="text-light"><i class="bi bi-pencil-square"></i>Update</a></button>
+                    <button class="btn btn-danger"><a href="delete.php?deleteid='.$itemCode.'" class="text-light"><i class="bi bi-trash3"></i>Delete</a></button>
                     </td>
                 </tr> ';
                 }
