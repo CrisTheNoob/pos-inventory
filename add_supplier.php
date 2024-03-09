@@ -1,16 +1,12 @@
 <?php
 include 'connec.php';
 if(isset($_POST['submit'])){
-    $nameSupplier=$_POST['nameSupplier'];
+    $supplierName=$_POST['supplierName'];
     $emailAddress=$_POST['emailAddress'];
     $address=$_POST['address'];
-    $productName=$_POST['productName'];
-    $productType=$_POST['productType'];
-    $description=$_POST['description'];
-    $unitCost=$_POST['unitCost'];
 
-    $sql="insert into `product_item` (nameSupplier,emailAddress,address,productName,productType,description,unitCost)
-    value('$nameSupplier','$emailAddress','$address','$productName','$productType','$description','$unitCost')";
+    $sql="insert into `supplierName` (supplierName,emailAddress,address)
+    value('$supplierName','$emailAddress','$address',)";
     $result=mysqli_query($con,$sql);
     if($result){
         header('location:supplier.php');
